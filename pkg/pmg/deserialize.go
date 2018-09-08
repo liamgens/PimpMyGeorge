@@ -12,6 +12,11 @@ type Georges struct {
 	Georges []George `json:"georges"`
 }
 
+// Blang for the boys
+type Blang struct {
+	Blang []Bling `json:"blang"`
+}
+
 // George is my pops
 type George struct {
 	Name        string `json:"name"`
@@ -41,20 +46,29 @@ const (
 )
 
 // OpenGeorgesHole Pay the troll toll to get in this boys hole
-func OpenGeorgesHole(path string) []George {
-	jsonFile, err := os.Open(path)
+func OpenGeorgesHole(georgePath string, blingPath string) ([]George, []Bling) {
+	georgeJSON, georgeErr := os.Open(georgePath)
+	blingJSON, blingErr := os.Open(blingPath)
 
-	if err != nil {
-		fmt.Println(err)
+	if georgeErr != nil {
+		fmt.Println(georgeErr)
 	}
 
-	defer jsonFile.Close()
+	if blingErr != nil {
+		fmt.Println(blingErr)
+	}
 
-	byteValue, _ := ioutil.ReadAll(jsonFile)
+	defer georgeJSON.Close()
+	defer blingJSON.Close()
+
+	georgeBytes, _ := ioutil.ReadAll(georgeJSON)
+	blangBytes, _ := ioutil.ReadAll(blingJSON)
 
 	var georges Georges
+	var blang Blang
 
-	json.Unmarshal(byteValue, &georges)
+	json.Unmarshal(georgeBytes, &georges)
+	json.Unmarshal(blangBytes, &blang)
 
-	return georges.Georges
+	return georges.Georges, blang.Blang
 }

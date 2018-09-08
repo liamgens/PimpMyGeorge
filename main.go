@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	g := pmg.OpenGeorgesHole("./pkg/pmg/test.json")
-	fmt.Println(g)
+	g, b := pmg.OpenGeorgesHole("./pkg/pmg/test.json", "./pkg/pmg/test2.json")
+	fmt.Println(g, b)
 }
