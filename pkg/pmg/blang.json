@@ -2,7 +2,7 @@
   "blang": [
     {
       "noun": "hat",
-      "location": 0,
+      "location": "HEAD",
       "variants": [
         {
           "adj": "red",

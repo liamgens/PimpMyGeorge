@@ -38,16 +38,17 @@ type BlingVariants struct {
 
 
 // Location for the bling
-type Location int
+type Location string
 
 // Location enum for where the bling should be placed on George
 const (
-	HEAD Location = 0 + iota
-	NECK
-	TORSO
-	LEGS
-	HANDS
-	FEET
+	HEAD Location = "HEAD"
+	FACE Location = "FACE"
+	NECK Location = "NECK"
+	TORSO Location = "TORSO"
+	LEGS Location = "LEGS"
+	HANDS Location = "HANDS"
+	FEET Location = "FEET"
 )
 
 // FetchGeorgeBlingData Parses JSON files and returns slices of the George structs and Bling structs
