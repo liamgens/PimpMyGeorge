@@ -7,24 +7,24 @@ import (
 	"os"
 )
 
-// Georges all my kids
+// Georges struct to hold all different Georges
 type Georges struct {
 	Georges []George `json:"georges"`
 }
 
-// Blang for the boys
+// Blang struct to hold the bling for the Georges to wear
 type Blang struct {
 	Blang []Bling `json:"blang"`
 }
 
-// George is my pops
+// George struct for George and all his sick accessories
 type George struct {
 	Name        string `json:"name"`
 	Image       string `json:"image"`
 	Accessories []Bling
 }
 
-//Bling to make him look cute
+//Bling struct for bling that George can wear
 type Bling struct {
 	Noun     string   `json:"noun"`
 	Adj      string   `json:"adj"`
@@ -32,10 +32,10 @@ type Bling struct {
 	Image    string   `json:"image"`
 }
 
-//Location for the bling
+// Location for the bling
 type Location int
 
-//Location enum
+// Location enum for where the bling should be placed on George
 const (
 	HEAD Location = 0 + iota
 	NECK
@@ -45,29 +45,29 @@ const (
 	FEET
 )
 
-// OpenGeorgesHole Pay the troll toll to get in this boys hole
-func OpenGeorgesHole(georgePath string, blingPath string) ([]George, []Bling) {
-	georgeJSON, georgeErr := os.Open(georgePath)
-	blingJSON, blingErr := os.Open(blingPath)
+// FetchGeorgeBlingData Parses JSON files and returns slices of the George structs and Bling structs
+func FetchGeorgeBlingData(georgesPath string, blangPath string) ([]George, []Bling) {
+	georgesJSON, georgesErr := os.Open(georgesPath)
+	blangJSON, blangErr := os.Open(blangPath)
 
-	if georgeErr != nil {
-		fmt.Println(georgeErr)
+	if georgesErr != nil {
+		fmt.Println(georgesErr)
 	}
 
-	if blingErr != nil {
-		fmt.Println(blingErr)
+	if blangErr != nil {
+		fmt.Println(blangErr)
 	}
 
-	defer georgeJSON.Close()
-	defer blingJSON.Close()
+	defer georgesJSON.Close()
+	defer blangJSON.Close()
 
-	georgeBytes, _ := ioutil.ReadAll(georgeJSON)
-	blangBytes, _ := ioutil.ReadAll(blingJSON)
+	georgesBytes, _ := ioutil.ReadAll(georgesJSON)
+	blangBytes, _ := ioutil.ReadAll(blangJSON)
 
 	var georges Georges
 	var blang Blang
 
-	json.Unmarshal(georgeBytes, &georges)
+	json.Unmarshal(georgesBytes, &georges)
 	json.Unmarshal(blangBytes, &blang)
 
 	return georges.Georges, blang.Blang

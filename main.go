@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	g, b := pmg.OpenGeorgesHole("./pkg/pmg/test.json", "./pkg/pmg/test2.json")
+	g, b := pmg.FetchGeorgeBlingData("./pkg/pmg/georges.json", "./pkg/pmg/blang.json")
 	fmt.Println(g, b)
 }
