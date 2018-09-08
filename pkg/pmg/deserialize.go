@@ -7,47 +7,24 @@ import (
 	"os"
 )
 
-// Head
-// Neck
-// Torso
-// Legs
-// Hands
-// Feet
-
-/*
-
-George
-{
-	name: "forman"
-	image: base64
-
-	some sort of x,y for placing images
-	head: (x1,y1), (x2,y2)
-
-}
-
-Swag
-{
-	name: "red hat" | "big ass chain"
-	location: HEAD | NECK | ... | FEET
-	image: base64
-}
-*/
-
+// George is my pops
 type George struct {
 	Name  string `json:"name"`
 	Image string `json:"image"`
 }
 
-// type Bling struct {
-// 	noun     string   `json:"noun"`
-// 	adj      string   `json:"adj"`
-// 	location Location `json:"location"`
-// 	image    string   `json:"image"`
-// }
+//Bling to make him look cute
+type Bling struct {
+	Noun     string   `json:"noun"`
+	Adj      string   `json:"adj"`
+	Location Location `json:"location"`
+	Image    string   `json:"image"`
+}
 
+//Location for the bling
 type Location int
 
+//Location enum
 const (
 	HEAD Location = 0 + iota
 	NECK
