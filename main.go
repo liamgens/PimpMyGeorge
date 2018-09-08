@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	PimpMyGeorge.PimpHim();
+	PimpMyGeorge.PimpHim()
 }
