@@ -1,9 +1,11 @@
-package main;
+package main
 
 import (
-	"github.com/liamgens/Gim/pkg/pmg"
+	"Gim/pkg/pmg"
+	"fmt"
 )
 
 func main() {
-	PimpMyGeorge.PimpHim()
+	g := pmg.OpenGeorgesHole("./pkg/pmg/test.json")
+	fmt.Println(g.Image)
 }
