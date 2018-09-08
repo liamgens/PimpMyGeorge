@@ -27,15 +27,10 @@ type George struct {
 //Bling struct for bling that George can wear
 type Bling struct {
 	Noun     string   `json:"noun"`
+	Adj      string   `json:"adj"`
 	Location Location `json:"location"`
-	Variants []BlingVariants `json:"variants"`
+	Image    string   `json:"image"`
 }
-
-type BlingVariants struct {
-	Adj string `json:"adj"`
-	Image string `json:"image"`
-}
-
 
 // Location for the bling
 type Location string
