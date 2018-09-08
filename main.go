@@ -1,8 +1,9 @@
 package main
 
 import (
-	"Gim/pkg/pmg"
 	"fmt"
+
+	"github.com/liamgens/Gim/pkg/pmg"
 )
 
 func main() {
