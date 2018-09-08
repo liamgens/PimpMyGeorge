@@ -1,10 +1,14 @@
 {
   "blang": [
     {
-      "noun": "Hat",
-      "adj": "Red",
+      "noun": "hat",
       "location": 0,
-      "image": "coolmathgames.com"
+      "variants": [
+        {
+          "adj": "red",
+          "image": "coolmathgames.com"
+        }
+      ]
     }
   ]
 }
