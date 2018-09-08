@@ -1,4 +1,12 @@
 {
-  "name": "George",
-  "image": "yeet"
+  "georges": [
+    {
+      "name": "Peter",
+      "image": "shithead"
+    },
+    {
+      "name": "Ryan",
+      "image": "whore"
+    }
+  ]
 }

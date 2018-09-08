@@ -7,5 +7,5 @@ import (
 
 func main() {
 	g := pmg.OpenGeorgesHole("./pkg/pmg/test.json")
-	fmt.Println(g.Image)
+	fmt.Println(g)
 }

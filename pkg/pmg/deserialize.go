@@ -7,10 +7,16 @@ import (
 	"os"
 )
 
+// Georges all my kids
+type Georges struct {
+	Georges []George `json:"georges"`
+}
+
 // George is my pops
 type George struct {
-	Name  string `json:"name"`
-	Image string `json:"image"`
+	Name        string `json:"name"`
+	Image       string `json:"image"`
+	Accessories []Bling
 }
 
 //Bling to make him look cute
@@ -35,7 +41,7 @@ const (
 )
 
 // OpenGeorgesHole Pay the troll toll to get in this boys hole
-func OpenGeorgesHole(path string) George {
+func OpenGeorgesHole(path string) []George {
 	jsonFile, err := os.Open(path)
 
 	if err != nil {
@@ -46,10 +52,9 @@ func OpenGeorgesHole(path string) George {
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 
-	var george George
+	var georges Georges
 
-	json.Unmarshal(byteValue, &george)
+	json.Unmarshal(byteValue, &georges)
 
-	return george
-
+	return georges.Georges
 }
