@@ -37,13 +37,13 @@ type Location string
 
 // Location enum for where the bling should be placed on George
 const (
-	HEAD Location = "HEAD"
-	FACE Location = "FACE"
-	NECK Location = "NECK"
+	HEAD  Location = "HEAD"
+	FACE  Location = "FACE"
+	NECK  Location = "NECK"
 	TORSO Location = "TORSO"
-	LEGS Location = "LEGS"
+	LEGS  Location = "LEGS"
 	HANDS Location = "HANDS"
-	FEET Location = "FEET"
+	FEET  Location = "FEET"
 )
 
 // FetchGeorgeBlingData Parses JSON files and returns slices of the George structs and Bling structs
