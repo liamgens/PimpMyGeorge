@@ -2,7 +2,7 @@
 
 You've heard about Pimp My Ride, but have you heard of Pimp My George?
 
-This is a command line interface used to add clothing and other accessories to pictures of george foremann, because who needs Photoshop anyways?
+This is a command line interface used to add clothing and other accessories to pictures of George Foreman, because who needs Photoshop anyways?
 
 ## Getting Started
 
