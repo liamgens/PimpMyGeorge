@@ -8,7 +8,6 @@ import (
 	"github.com/liamgens/Gim/pkg/pmg"
 )
 
-// TODO: Remove this.
 func readBase64File(fileName string) string {
 	b, err := ioutil.ReadFile(fileName)
 	if err != nil {
@@ -19,11 +18,12 @@ func readBase64File(fileName string) string {
 }
 
 func main() {
-	curiousGeorge := readBase64File("cg1.txt")
-	mustache := readBase64File("mustache.txt")
-	pinkShirt := readBase64File("pinkshirt.txt")
+	george64 := pmg.EncodeImageToBase64("georges/georgeforeman/georgeforeman3.png")
+	clothing64 := pmg.EncodeImageToBase64("clothing/hats/comptonflatbrim.png")
 
-	george := pmg.TempGeorge{curiousGeorge, []pmg.TempBling{pmg.TempBling{mustache, image.Rect(190, 170, 290, 220)}, pmg.TempBling{pinkShirt, image.Rect(30, 300, 330, 600)}}}
+	location := image.Rect(200, -3, 315, 65)
+
+	george := pmg.TempGeorge{george64, []pmg.TempBling{pmg.TempBling{clothing64, location}}}
 
 	pmg.CreateBlingImage(george, "bling-image.png")
 }
