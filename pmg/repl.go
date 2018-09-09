@@ -79,10 +79,10 @@ func evaluateInput(input string, george *George) {
 	}
 
 	if actions[0] == export {
-		fmt.Println("Exporting that shit")
+		fmt.Println("Exporting that stuff")
 		err := CreateBlingImage(*george, "output.png")
 		if err != nil {
-			fmt.Println("FUCK")
+			fmt.Println("Error exporting")
 		}
 	} else if actions[0] == quit {
 		fmt.Println("Exiting!")
