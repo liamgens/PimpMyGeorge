@@ -1,7 +1,7 @@
 The MIT License (MIT)
 =====================
 
-Copyright © `2018` `Stephen James, Peter Gottesman, Liam Gensel, Ryan Dils`
+Copyright © `2018` `[Stephen James](https://github.com/stephenorjames), [Peter Gottesman](https://github.com/PeterGottesman), [Liam Gensel](https://github.com/liamgens), [Ryan Dils](https://github.com/RyChrome)`
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
