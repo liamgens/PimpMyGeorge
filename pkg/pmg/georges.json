@@ -4,7 +4,7 @@
       "name": "George Forman",
       "image": "shithead",
       "pieces": {
-        "head": [200, 10, 315, 35],
+        "head": [200, -3, 315, 65],
         "face": [210, 73, 290, 90],
         "neck": [217, 164, 300, 180],
         "torso": [165, 165, 375, 325],
