@@ -6,6 +6,8 @@ import (
 	"gopkg.in/jdkato/prose.v2"
 	"os"
 	"strings"
+	"time"
+	"math/rand"
 )
 
 type action int
@@ -46,10 +48,19 @@ var (
 		verbAction{"exit", quit},
 		verbAction{"leave", quit},
 	}
+
+	flavortown []string
 )
 
+func flavaflav(bling Bling) string{
+	flav := flavortown[rand.Intn(len(flavortown))]
+	if strings.Contains(flav, "%s") {
+		return fmt.Sprintf(flav, bling.Adj, bling.Noun)
+	}
+	return flav
+}
+
 func evaluateInput(input string, george *George) {
-	fmt.Println("Starting eval")
 	doc, _ := prose.NewDocument(input)
 
 	var (
@@ -61,7 +72,6 @@ func evaluateInput(input string, george *George) {
 	)
 
 	for _, el := range doc.Tokens() {
-		fmt.Println(el)
 		switch el.Tag {
 		case "JJ":
 			adjs = append(adjs, el.Text)
@@ -79,14 +89,22 @@ func evaluateInput(input string, george *George) {
 	}
 
 	if actions[0] == export {
-		//TODO Call Stephen's code
+		fmt.Println("Exporting that stuff")
+		err := CreateBlingImage(*george, "output.png")
+		if err != nil {
+			fmt.Println("Error exporting")
+		}
 	} else if actions[0] == quit {
 		fmt.Println("Exiting!")
 		os.Exit(0)
 	} else if actions[0] == list {
+		if len(george.Accessories) == 0 {
+			fmt.Println("George is bare ass naked and he looks great ;)")
+			return
+		}
 		fmt.Println("George is wearing:")
-		for _, bling := range george.Accessories {
-			fmt.Println(bling)
+		for ind, bling := range george.Accessories {
+			fmt.Printf("%d: A %s %s\n", ind+1, bling.Adj, bling.Noun)
 		}
 	} else {
 		for _, adj := range adjs {
@@ -97,6 +115,7 @@ func evaluateInput(input string, george *George) {
 			}
 		}
 		george.Accessories = append(george.Accessories, bling)
+		fmt.Println(flavaflav(bling))
 	}
 }
 
@@ -114,6 +133,13 @@ func initializeVars() {
 	for _, verb := range verbList {
 		actionMap[verb.verb] = verb.action
 	}
+
+	file,_ := os.Open("./pmg/flavor.txt")
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		flavortown = append(flavortown, scanner.Text())
+	}
+	rand.Seed(time.Now().Unix())
 }
 
 func MainLoop() {

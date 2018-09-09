@@ -11,26 +11,15 @@ import (
 	"github.com/anthonynsimon/bild/transform"
 )
 
-// TODO: Remove this.
-type TempGeorge struct {
-	Image  string
-	Blings []TempBling
-}
-
-// TODO: Remove this.
-type TempBling struct {
-	Image    string
-	Location image.Rectangle
-}
-
-func CreateBlingImage(george TempGeorge, outputFileName string) error {
+func CreateBlingImage(george George, outputFileName string) error {
 	georgeImg, err := base64AsPng(george.Image)
 	if err != nil {
 		return err
 	}
 
-	for _, bling := range george.Blings {
-		err := addBling(georgeImg, bling)
+	for _, bling := range george.Accessories {
+		rectal := george.Rectals[bling.Location]
+		err := addBling(georgeImg, rectal, bling)
 		if err != nil {
 			return err
 		}
@@ -41,16 +30,16 @@ func CreateBlingImage(george TempGeorge, outputFileName string) error {
 	return nil
 }
 
-func addBling(georgeImg *image.RGBA, bling TempBling) error {
+func addBling(georgeImg *image.RGBA, rectal image.Rectangle, bling Bling) error {
 	blingImg, err := base64AsPng(bling.Image)
 	if err != nil {
 		return err
 	}
 
-	dimensions := bling.Location.Max.Sub(bling.Location.Min)
+	dimensions := rectal.Max.Sub(rectal.Min)
 	blingImg = transform.Resize(blingImg, dimensions.X, dimensions.Y, transform.Linear)
 
-	draw.Draw(georgeImg, blingImg.Bounds().Add(bling.Location.Min), blingImg, image.ZP, draw.Over)
+	draw.Draw(georgeImg, blingImg.Bounds().Add(rectal.Min), blingImg, image.ZP, draw.Over)
 
 	return nil
 }
