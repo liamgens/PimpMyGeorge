@@ -113,7 +113,7 @@ func evaluateInput(input string, george *George) {
 			}
 		}
 		george.Accessories = append(george.Accessories, bling)
-		fmt.Printf(flavaflav(), bling.Adj, bling.Noun)
+		fmt.Printf(flavaflav() + "\n", bling.Adj, bling.Noun)
 	}
 }
 
@@ -132,10 +132,10 @@ func initializeVars() {
 		actionMap[verb.verb] = verb.action
 	}
 
-	reader := bufio.NewReader(os.Open("flavor.txt"))
-	for line,err := reader.ReadString('\n'); err == nil
-	{
-		flavortown = append(flavortown, line)
+	file,_ := os.Open("./pmg/flavor.txt")
+	scanner := bufio.NewScanner(file)
+	for scanner.Scan() {
+		flavortown = append(flavortown, scanner.Text())
 	}
 	rand.Seed(time.Now().Unix())
 }
