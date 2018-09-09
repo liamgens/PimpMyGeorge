@@ -69,7 +69,6 @@ func evaluateInput(input string, george *George) {
 	)
 
 	for _, el := range doc.Tokens() {
-		fmt.Println(el)
 		switch el.Tag {
 		case "JJ":
 			adjs = append(adjs, el.Text)
@@ -101,8 +100,8 @@ func evaluateInput(input string, george *George) {
 			return
 		}
 		fmt.Println("George is wearing:")
-		for _, bling := range george.Accessories {
-			fmt.Println(bling)
+		for ind, bling := range george.Accessories {
+			fmt.Printf("%d: A %s %s\n", ind+1, bling.Adj, bling.Noun)
 		}
 	} else {
 		for _, adj := range adjs {
