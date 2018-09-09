@@ -79,15 +79,19 @@ func evaluateInput(input string, george *George) {
 	}
 
 	if actions[0] == export {
-		fmt.Println("Exporting that shit")
+		fmt.Println("Exporting that stuff")
 		err := CreateBlingImage(*george, "output.png")
 		if err != nil {
-			fmt.Println("FUCK")
+			fmt.Println("Error exporting")
 		}
 	} else if actions[0] == quit {
 		fmt.Println("Exiting!")
 		os.Exit(0)
 	} else if actions[0] == list {
+		if len(george.Accessories == 0) {
+			fmt.Println("George is bare ass naked and he looks great ;)")
+			return
+		}
 		fmt.Println("George is wearing:")
 		for _, bling := range george.Accessories {
 			fmt.Println(bling)

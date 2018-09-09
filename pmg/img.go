@@ -7,7 +7,6 @@ import (
 	"image/draw"
 	"image/png"
 	"os"
-	"fmt"
 
 	"github.com/anthonynsimon/bild/transform"
 )
