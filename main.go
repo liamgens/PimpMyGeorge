@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/liamgens/Gim/pkg/pmg"
-)
+import "github.com/liamgens/PimpMyGeorge/pmg"
 
 func main() {
 	// Dance for me George
