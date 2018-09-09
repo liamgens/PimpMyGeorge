@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 
-	"github.com/liamgens/Gim/pkg/pmg"
+	"github.com/liamgens/PimpMyGeorge/pmg"
 )
 
 func main() {
-	g, b := pmg.FetchGeorgeBlingData("./pkg/pmg/georges.json", "./pkg/pmg/blang.json")
+	g, b := pmg.FetchGeorgeBlingData("./pmg/georges.json", "./pmg/blang.json")
 	fmt.Println(b)
 
 	//Iterate over all Georges

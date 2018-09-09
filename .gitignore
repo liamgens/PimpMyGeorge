@@ -16,4 +16,7 @@
 /GRTAGS
 /GTAGS
 
+# Generated output images
+*-out.png
+
 .vscode/
