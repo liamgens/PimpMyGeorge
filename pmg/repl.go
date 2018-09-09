@@ -52,12 +52,15 @@ var (
 	flavortown []string
 )
 
-func flavaflav() string{
-	return flavortown[rand.Intn(len(flavortown))]
+func flavaflav(bling Bling) string{
+	flav := flavortown[rand.Intn(len(flavortown))]
+	if strings.Contains(flav, "%s") {
+		return fmt.Sprintf(flav, bling.Adj, bling.Noun)
+	}
+	return flav
 }
 
 func evaluateInput(input string, george *George) {
-	fmt.Println("Starting eval")
 	doc, _ := prose.NewDocument(input)
 
 	var (
@@ -112,7 +115,7 @@ func evaluateInput(input string, george *George) {
 			}
 		}
 		george.Accessories = append(george.Accessories, bling)
-		fmt.Printf(flavaflav() + "\n", bling.Adj, bling.Noun)
+		fmt.Println(flavaflav(bling))
 	}
 }
 
