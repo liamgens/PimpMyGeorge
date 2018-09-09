@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 
-	"github.com/liamgens/Gim/pkg/pmg"
+	"github.com/liamgens/PimpMyGeorge/pmg"
 )
 
 func readBase64File(fileName string) string {
@@ -25,5 +25,5 @@ func main() {
 
 	george := pmg.TempGeorge{george64, []pmg.TempBling{pmg.TempBling{clothing64, location}}}
 
-	pmg.CreateBlingImage(george, "bling-image.png")
+	pmg.CreateBlingImage(george, "bling-image-out.png")
 }
