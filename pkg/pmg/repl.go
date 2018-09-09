@@ -79,7 +79,11 @@ func evaluateInput(input string, george *George) {
 	}
 	
 	if actions[0] == export {
-		//TODO Call Stephen's code
+		fmt.Println("Exporting that shit")
+		err := CreateBlingImage(*george, "output.png")
+		if err != nil {
+			fmt.Println("FUCK")
+		}
 	} else if actions[0] == quit {
 		fmt.Println("Exiting!")
 		os.Exit(0)
