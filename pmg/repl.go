@@ -88,6 +88,10 @@ func evaluateInput(input string, george *George) {
 		fmt.Println("Exiting!")
 		os.Exit(0)
 	} else if actions[0] == list {
+		if len(george.Accessories == 0) {
+			fmt.Println("George is bare ass naked and he looks great ;)")
+			return
+		}
 		fmt.Println("George is wearing:")
 		for _, bling := range george.Accessories {
 			fmt.Println(bling)
