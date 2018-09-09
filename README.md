@@ -57,4 +57,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Thanks to the creators of the [Go programming language](https://www.google.com/search?q=creators+of+go&oq=creators+of+go&aqs=chrome..69i57j0l5.1798j0j7&sourceid=chrome&ie=UTF-8) for making a compiled language that didn't make us want to invest in $ROPE and $CHAIR when the markets re-open on Monday at 9:30am.  
-* We'd also like to thank [George Foreman](https://en.wikipedia.org/wiki/George_Foreman) and [other notable people named George] for inspiring us with this project(https://www.ranker.com/list/famous-people-named-george/reference).
+* We'd also like to thank [George Foreman](https://en.wikipedia.org/wiki/George_Foreman) and [other notable people named George](https://www.ranker.com/list/famous-people-named-george/reference) for inspiring us with this project.
