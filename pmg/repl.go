@@ -6,6 +6,8 @@ import (
 	"gopkg.in/jdkato/prose.v2"
 	"os"
 	"strings"
+	"time"
+	"math/rand"
 )
 
 type action int
@@ -46,7 +48,13 @@ var (
 		verbAction{"exit", quit},
 		verbAction{"leave", quit},
 	}
+
+	flavortown []string
 )
+
+func flavaflav() string{
+	return flavortown[rand.Intn(len(flavortown))]
+}
 
 func evaluateInput(input string, george *George) {
 	fmt.Println("Starting eval")
@@ -88,7 +96,7 @@ func evaluateInput(input string, george *George) {
 		fmt.Println("Exiting!")
 		os.Exit(0)
 	} else if actions[0] == list {
-		if len(george.Accessories == 0) {
+		if len(george.Accessories) == 0 {
 			fmt.Println("George is bare ass naked and he looks great ;)")
 			return
 		}
@@ -105,6 +113,7 @@ func evaluateInput(input string, george *George) {
 			}
 		}
 		george.Accessories = append(george.Accessories, bling)
+		fmt.Printf(flavaflav(), bling.Adj, bling.Noun)
 	}
 }
 
@@ -122,6 +131,13 @@ func initializeVars() {
 	for _, verb := range verbList {
 		actionMap[verb.verb] = verb.action
 	}
+
+	reader := bufio.NewReader(os.Open("flavor.txt"))
+	for line,err := reader.ReadString('\n'); err == nil
+	{
+		flavortown = append(flavortown, line)
+	}
+	rand.Seed(time.Now().Unix())
 }
 
 func MainLoop() {
