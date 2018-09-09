@@ -1,0 +1,17 @@
+{
+  "georges": [
+    {
+      "name": "George Forman",
+      "image": "shithead",
+      "pieces": {
+        "head": [0, 0, 5, 5],
+        "face": [0, 0, 5, 5],
+        "neck": [0, 0, 5, 5],
+        "torso": [0, 0, 5, 5],
+        "legs": [0, 0, 5, 5],
+        "hands": [0, 0, 5, 5],
+        "feet": [0, 0, 5, 5]
+      }
+    }
+  ]
+}
