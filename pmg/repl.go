@@ -72,12 +72,13 @@ func evaluateInput(input string, george *George) {
 	)
 
 	for _, el := range doc.Tokens() {
+		//fmt.Println(el)
 		switch el.Tag {
-		case "JJ":
+		case "JJ", "JJR", "JJS":
 			adjs = append(adjs, el.Text)
-		case "NN":
+		case "NN", "NNS":
 			nouns = append(nouns, el.Text)
-		case "VB":
+		case "VB", "VBD", "VBG", "VBN", "VBP", "VBZ":
 			if act, oke := actionMap[el.Text]; oke {
 				actions = append(actions, act)
 			}

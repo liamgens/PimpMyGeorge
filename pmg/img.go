@@ -18,6 +18,9 @@ func CreateBlingImage(george George, outputFileName string) error {
 	}
 
 	for _, bling := range george.Accessories {
+		if bling == (Bling{}) {
+			continue
+		}
 		rectal := george.Rectals[bling.Location]
 		err := addBling(georgeImg, rectal, bling)
 		if err != nil {
