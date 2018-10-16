@@ -33,14 +33,6 @@ To be continued...
 * [Python 3.7](https://www.python.org/downloads/release/python-370/) - Used for scripting
 * [JSON](https://www.json.org/) - What's life without some JSON?
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
 ## Authors
 
 * **Stephen James** - *OP Google Developer* - [Stephen James](https://github.com/stephenorjames)
